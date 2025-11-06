@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.delete {
+    margin-left: 100px;
+}

@@ -11,20 +11,20 @@ function addTask() {
 
   const delBtn = document.createElement("button");
   delBtn.textContent = "Delete";
-  delBtn.classList.add("delete"); // <-- düzeltme
+  delBtn.classList.add("delete");
 
   li.appendChild(delBtn);
   list.appendChild(li);
 
   input.value = "";
-  input.focus(); // <-- kalite dokunuşu
+  input.focus();
 }
 
 addButton.addEventListener("click", addTask);
 
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    e.preventDefault(); // form içindeyse sayfa yenilemeyi engeller
+    e.preventDefault();
     addTask();
   }
 });

@@ -1,6 +1,7 @@
 const input = document.getElementById("to-do");
 const addButton = document.getElementById("add-btn");
 const list = document.querySelector("ul");
+const completeAll = document.getElementById("complete-all")
 
 function addTask() {
   const text = input.value.trim();
@@ -55,4 +56,12 @@ list.addEventListener("click", (e) => {
       li.classList.toggle("done", e.target.checked)
     }
   }
+})
+
+completeAll.addEventListener("click", () => {
+  const checkboxes = list.querySelectorAll("input.toggle");
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = true;
+    checkbox.closest("li").classList.add("done");
+  })
 })

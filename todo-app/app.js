@@ -1,7 +1,9 @@
 const input = document.getElementById("to-do");
 const addButton = document.getElementById("add-btn");
 const list = document.querySelector("ul");
-const completeAll = document.getElementById("complete-all")
+const completeAll = document.getElementById("complete-all");
+const showActive = document.getElementById("show-active");
+const showCompleted = document.getElementById("completed");
 
 function addTask() {
   const text = input.value.trim();
@@ -29,6 +31,21 @@ function addTask() {
 
   input.value = "";
   input.focus();
+}
+
+function showList(filterType) {
+  const taskList = document.querySelectorAll("li");
+  taskList.forEach (li => {
+    const done = li.classList.contains("done");
+
+    if (filterType === "active") {
+      li.style.display = done ? "none" : "";
+    } else if (filterType === "completed") {
+      li.style.display = done ? "" : "none";
+    } else {
+      li.style.display = "";
+    }
+  });
 }
 
 addButton.addEventListener("click", () => {
@@ -64,4 +81,12 @@ completeAll.addEventListener("click", () => {
     checkbox.checked = true;
     checkbox.closest("li").classList.add("done");
   })
+})
+
+showActive.addEventListener("click", () => {
+  showList("active");
+})
+
+showCompleted.addEventListener("click", () => {
+  showList("completed");
 })

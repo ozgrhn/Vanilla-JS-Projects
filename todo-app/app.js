@@ -4,6 +4,7 @@ const list = document.querySelector("ul");
 const completeAll = document.getElementById("complete-all");
 const showActive = document.getElementById("show-active");
 const showCompleted = document.getElementById("completed");
+const clearList = document.getElementById("clear-todo")
 
 function addTask() {
   const text = input.value.trim();
@@ -89,4 +90,14 @@ showActive.addEventListener("click", () => {
 
 showCompleted.addEventListener("click", () => {
   showList("completed");
+})
+
+clearList.addEventListener("click", () => {
+  const doneTask = list.querySelectorAll("li");
+
+  doneTask.forEach(li => {
+    if (li.classList.contains("done")) {
+      li.remove();
+    }
+  })
 })
